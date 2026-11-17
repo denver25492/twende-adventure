@@ -4,134 +4,1158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Twende Adventure | Admin Dashboard</title>
-    <link rel="stylesheet" href="admin.css">
+
+    <title>Twende Adventure | Explore Kenya</title>
+
+    <meta name="description" content="Discover unforgettable adventures, trips and travel experiences across Kenya with Twende Adventure.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #26352b;
+            background: #fff;
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        :root {
+            --green: #167442;
+            --dark-green: #0c4027;
+            --light-green: #eaf5ed;
+            --orange: #f2a900;
+            --dark: #17251d;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* HEADER */
+
+        header {
+            background: white;
+            box-shadow: 0 2px 12px rgba(0,0,0,.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            min-height: 82px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--dark-green);
+            font-size: 22px;
+            font-weight: 800;
+        }
+
+        .logo img {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        nav a {
+            color: #26352b;
+            font-size: 13px;
+            font-weight: 600;
+            transition: .3s;
+        }
+
+        nav a:hover {
+            color: var(--green);
+        }
+
+        .nav-book {
+            background: var(--green);
+            color: white;
+            padding: 10px 18px;
+            border-radius: 30px;
+        }
+
+        .nav-book:hover {
+            background: var(--dark-green);
+            color: white;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 590px;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.48)),
+                url("https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1800&q=85") center/cover;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            margin: auto;
+            padding: 70px 15px;
+        }
+
+        .hero h1 {
+            font-size: clamp(35px, 6vw, 65px);
+            line-height: 1.2;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero h1 span {
+            color: var(--orange);
+        }
+
+        .hero p {
+            font-size: 17px;
+            max-width: 650px;
+            margin: 0 auto 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 25px;
+            border-radius: 30px;
+            font-weight: 700;
+            transition: .3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--orange);
+            color: #18251d;
+        }
+
+        .btn-primary:hover {
+            background: white;
+            transform: translateY(-3px);
+        }
+
+        .btn-green {
+            background: var(--green);
+            color: white;
+        }
+
+        .btn-green:hover {
+            background: var(--dark-green);
+        }
+
+        /* INTRO STRIP */
+
+        .intro-strip {
+            background: var(--dark-green);
+            color: white;
+            padding: 25px 0;
+        }
+
+        .intro-items {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            text-align: center;
+            gap: 20px;
+        }
+
+        .intro-items h3 {
+            color: var(--orange);
+            font-size: 17px;
+        }
+
+        .intro-items p {
+            font-size: 13px;
+        }
+
+        /* GENERAL SECTIONS */
+
+        section {
+            padding: 75px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-heading small {
+            color: var(--green);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(27px, 4vw, 38px);
+            color: var(--dark-green);
+            margin: 8px 0;
+        }
+
+        .section-heading p {
+            max-width: 650px;
+            margin: auto;
+            color: #66736a;
+        }
+
+        /* ABOUT */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 45px;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 390px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .about-text h2 {
+            font-size: 34px;
+            color: var(--dark-green);
+            margin-bottom: 15px;
+        }
+
+        .about-text p {
+            color: #66736a;
+            margin-bottom: 15px;
+        }
+
+        /* DESTINATIONS */
+
+        .destination-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .destination-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 13px;
+            height: 280px;
+        }
+
+        .destination-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: .4s;
+        }
+
+        .destination-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .destination-card div {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px 18px 18px;
+            color: white;
+            background: linear-gradient(transparent, rgba(0,0,0,.85));
+        }
+
+        .destination-card h3 {
+            font-size: 22px;
+        }
+
+        /* UPCOMING TRIPS */
+
+        .trips-section {
+            background: #f6faf7;
+        }
+
+        .trip-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 25px;
+        }
+
+        .trip-card {
+            background: white;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 5px 22px rgba(0,0,0,.08);
+            transition: .3s;
+        }
+
+        .trip-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 28px rgba(0,0,0,.13);
+        }
+
+        .trip-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            background: #e9eee9;
+        }
+
+        .trip-card-content {
+            padding: 20px;
+        }
+
+        .trip-card h3 {
+            color: var(--dark-green);
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .trip-info {
+            color: #657269;
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+
+        .trip-price {
+            color: var(--green);
+            font-size: 21px;
+            font-weight: 800;
+            margin: 12px 0;
+        }
+
+        .trip-description {
+            color: #66736a;
+            font-size: 14px;
+            margin-bottom: 17px;
+            white-space: pre-line;
+        }
+
+        .trip-book {
+            display: inline-block;
+            background: var(--green);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .trip-book:hover {
+            background: var(--dark-green);
+        }
+
+        .loading-message,
+        .no-posts,
+        .error-message {
+            text-align: center;
+            padding: 25px;
+            color: #66736a;
+            grid-column: 1 / -1;
+        }
+
+        /* LATEST UPDATES */
+
+        .posts-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 25px;
+        }
+
+        .post-card {
+            background: white;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,.08);
+        }
+
+        .post-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .post-content {
+            padding: 20px;
+        }
+
+        .post-content h3 {
+            color: var(--dark-green);
+            margin-bottom: 10px;
+        }
+
+        .post-content p {
+            color: #66736a;
+            white-space: pre-line;
+        }
+
+        .post-date {
+            display: block;
+            margin-top: 15px;
+            color: #89948d;
+            font-size: 12px;
+        }
+
+        /* GALLERY */
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .gallery-grid img {
+            height: 230px;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        /* WHY CHOOSE US */
+
+        .why-section {
+            background: var(--light-green);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .why-card {
+            background: white;
+            padding: 28px 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .why-card .symbol {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        .why-card h3 {
+            color: var(--dark-green);
+            margin-bottom: 8px;
+        }
+
+        .why-card p {
+            font-size: 14px;
+            color: #66736a;
+        }
+
+        /* BOOKING */
+
+        .booking-section {
+            background:
+                linear-gradient(rgba(7,47,27,.9), rgba(7,47,27,.9)),
+                url("https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1500&q=80") center/cover;
+            color: white;
+        }
+
+        .booking-section .section-heading h2,
+        .booking-section .section-heading p {
+            color: white;
+        }
+
+        .booking-form {
+            max-width: 750px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .booking-form input,
+        .booking-form select,
+        .booking-form textarea {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 7px;
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        .booking-form textarea {
+            grid-column: 1 / -1;
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        .booking-form button {
+            grid-column: 1 / -1;
+        }
+
+        /* CONTACT */
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .contact-card {
+            padding: 25px;
+            background: #f6faf7;
+            border-radius: 12px;
+        }
+
+        .contact-card h3 {
+            color: var(--dark-green);
+            margin-bottom: 8px;
+        }
+
+        .contact-card p,
+        .contact-card a {
+            color: #66736a;
+            font-size: 14px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #102b1d;
+            color: white;
+            padding: 45px 0 20px;
+            text-align: center;
+        }
+
+        footer h2 {
+            color: var(--orange);
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            font-size: 14px;
+            color: #d3ddd6;
+        }
+
+        .footer-links {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            font-size: 13px;
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,.15);
+            margin-top: 25px;
+            padding-top: 18px;
+        }
+
+        /* WHATSAPP BUTTON */
+
+        .whatsapp-float {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            background: #25d366;
+            color: white;
+            padding: 13px 19px;
+            border-radius: 40px;
+            font-weight: 700;
+            z-index: 999;
+            box-shadow: 0 4px 15px rgba(0,0,0,.2);
+        }
+
+        /* RESPONSIVE DESIGN */
+
+        @media (max-width: 900px) {
+            .navbar {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+
+            nav {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 13px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 650px) {
+            section {
+                padding: 55px 0;
+            }
+
+            .intro-items,
+            .destination-grid,
+            .why-grid,
+            .contact-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: 500px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .booking-form {
+                grid-template-columns: 1fr;
+            }
+
+            .booking-form textarea,
+            .booking-form button {
+                grid-column: auto;
+            }
+
+            .destination-card {
+                height: 250px;
+            }
+
+            .gallery-grid img {
+                height: 250px;
+            }
+
+            .logo {
+                font-size: 19px;
+            }
+        }
+    </style>
 </head>
 
 <body>
+
+    <!-- HEADER -->
     <header>
-        <h1>TWENDE ADVENTURE</h1>
-        <p>Admin Management Dashboard</p>
+        <div class="container navbar">
+
+            <a href="#home" class="logo">
+                <img src="images/logo.png" alt="Twende Adventure Logo"
+                     onerror="this.style.display='none'">
+                <span>TWENDE ADVENTURE</span>
+            </a>
+
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#destinations">Destinations</a>
+                <a href="#trips">Our Trips</a>
+                <a href="#updates">Updates</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#contact">Contact</a>
+                <a href="#booking" class="nav-book">Book Now</a>
+            </nav>
+
+        </div>
     </header>
 
-    <main class="container">
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-content">
 
-        <!-- ADMIN LOGIN -->
-        <section id="loginSection" class="panel">
-            <h2>Admin Login</h2>
+            <h1>EXPLORE MORE.<br><span>LIVE THE ADVENTURE.</span></h1>
 
-            <form id="loginForm">
-                <label for="email">Email Address</label>
-                <input type="email" id="email"
-                       placeholder="Enter admin email" required>
-
-                <label for="password">Password</label>
-                <input type="password" id="password"
-                       placeholder="Enter password" required>
-
-                <button type="submit">Login</button>
-            </form>
-
-            <p id="loginMessage"></p>
-        </section>
-
-        <!-- ADMIN DASHBOARD -->
-        <section id="dashboardSection" class="panel" hidden>
-
-            <div class="dashboard-header">
-                <h2>Admin Dashboard</h2>
-                <button id="logoutBtn" type="button">Logout</button>
-            </div>
-
-            <!-- MANAGE TRIPS -->
-            <h2>Manage Trips</h2>
-            <h3 id="formTitle">Add New Trip</h3>
-
-            <form id="tripForm">
-                <label for="tripName">Trip Name</label>
-                <input type="text" id="tripName"
-                       placeholder="e.g. Camp Ndunda Falls" required>
-
-                <label for="tripLocation">Location</label>
-                <input type="text" id="tripLocation"
-                       placeholder="Enter trip location" required>
-
-                <label for="tripDate">Trip Date</label>
-                <input type="date" id="tripDate" required>
-
-                <label for="tripPrice">Price (KSh)</label>
-                <input type="number" id="tripPrice"
-                       placeholder="Enter price" min="1" required>
-
-                <label for="tripImage">Image URL</label>
-                <input type="url" id="tripImage"
-                       placeholder="Paste image URL">
-
-                <label for="tripDescription">Trip Description</label>
-                <textarea id="tripDescription"
-                          placeholder="Describe the trip and activities"
-                          required></textarea>
-
-                <button type="submit" id="saveTripBtn">Save Trip</button>
-                <button type="button" id="cancelEditBtn" hidden>
-                    Cancel Edit
-                </button>
-            </form>
-
-            <p id="tripMessage"></p>
-
-            <hr>
-
-            <h3>Available Trips</h3>
-            <div id="tripsList">
-                Loading trips...
-            </div>
-
-            <hr>
-
-            <!-- MANAGE WEBSITE POSTS -->
-            <h2>Manage Website Posts</h2>
             <p>
-                Publish announcements, travel updates, event information
-                and other news for visitors to see on your website.
+                Discover Kenya's beautiful destinations, exciting activities
+                and unforgettable experiences with Twende Adventure.
             </p>
 
-            <form id="postForm">
-                <label for="postTitle">Post Title</label>
-                <input type="text" id="postTitle"
-                       placeholder="e.g. Twende Camp Ndunda Falls"
-                       required>
+            <a href="#trips" class="btn btn-primary">Explore Our Trips</a>
+            <a href="#about" class="btn btn-green">Discover Us</a>
 
-                <label for="postContent">Post Message</label>
-                <textarea id="postContent"
-                          placeholder="Write your announcement or update here..."
-                          required></textarea>
+        </div>
+    </section>
 
-                <label for="postImage">Post Image URL (optional)</label>
-                <input type="url" id="postImage"
-                       placeholder="Paste an image URL">
+    <!-- INTRO -->
+    <div class="intro-strip">
+        <div class="container intro-items">
 
-                <button type="submit" id="publishPostBtn">
-                    Publish Post
-                </button>
-            </form>
-
-            <p id="postMessage"></p>
-
-            <hr>
-
-            <h3>Published Posts</h3>
-            <div id="postsList">
-                Your posts will appear here.
+            <div>
+                <h3>Adventure</h3>
+                <p>Discover exciting experiences</p>
             </div>
 
-        </section>
-    </main>
+            <div>
+                <h3>Explore Kenya</h3>
+                <p>Discover amazing destinations</p>
+            </div>
 
+            <div>
+                <h3>Make Memories</h3>
+                <p>Enjoy unforgettable moments</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="container about-grid">
+
+            <div class="about-image">
+                <img
+                    src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=900&q=85"
+                    alt="African nature and wildlife">
+            </div>
+
+            <div class="about-text">
+                <small>WELCOME TO TWENDE ADVENTURE</small>
+
+                <h2>Your Adventure Starts Here</h2>
+
+                <p>
+                    Twende Adventure brings people together through travel,
+                    exploration and exciting outdoor experiences.
+                </p>
+
+                <p>
+                    From beautiful waterfalls and nature walks to road trips
+                    and group adventures, we help you discover memorable
+                    experiences across Kenya.
+                </p>
+
+                <a href="#trips" class="btn btn-green">View Upcoming Trips</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- DESTINATIONS -->
+    <section id="destinations" style="background:#f6faf7;">
+        <div class="container">
+
+            <div class="section-heading">
+                <small>DISCOVER KENYA</small>
+                <h2>Popular Destinations</h2>
+                <p>Explore beautiful places and experience the beauty of Kenya.</p>
+            </div>
+
+            <div class="destination-grid">
+
+                <div class="destination-card">
+                    <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=800&q=80" alt="Kenyan safari">
+                    <div>
+                        <h3>Kenya Adventures</h3>
+                        <p>Explore nature and wildlife</p>
+                    </div>
+                </div>
+
+                <div class="destination-card">
+                    <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80" alt="Mountain adventure">
+                    <div>
+                        <h3>Mountain Adventures</h3>
+                        <p>Discover amazing landscapes</p>
+                    </div>
+                </div>
+
+                <div class="destination-card">
+                    <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=800&q=80" alt="Waterfall and nature">
+                    <div>
+                        <h3>Nature Escapes</h3>
+                        <p>Relax and enjoy the outdoors</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- UPCOMING TRIPS -->
+    <section class="trips-section" id="trips">
+        <div class="container">
+
+            <div class="section-heading">
+                <small>JOIN THE EXPERIENCE</small>
+                <h2>Upcoming Adventures</h2>
+                <p>
+                    Find your next adventure. New trips added by our team
+                    will appear here automatically.
+                </p>
+            </div>
+
+            <div class="trip-container" id="tripContainer">
+                <p class="loading-message">Loading upcoming adventures...</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- LATEST UPDATES -->
+    <section id="updates">
+        <div class="container">
+
+            <div class="section-heading">
+                <small>WHAT'S NEW?</small>
+                <h2>Latest Updates</h2>
+                <p>Stay informed about our latest announcements and adventures.</p>
+            </div>
+
+            <div class="posts-container" id="postsContainer">
+                <p class="loading-message">Loading latest updates...</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" style="background:#f6faf7;">
+        <div class="container">
+
+            <div class="section-heading">
+                <small>OUR EXPERIENCES</small>
+                <h2>Adventure Gallery</h2>
+                <p>Discover the beauty and excitement of exploring.</p>
+            </div>
+
+            <div class="gallery-grid">
+                <img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=800&q=80" alt="Wildlife adventure">
+                <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80" alt="Nature exploration">
+                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80" alt="Mountain experience">
+                <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=800&q=80" alt="Beautiful scenery">
+                <img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=800&q=80" alt="Forest adventure">
+                <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80" alt="Outdoor adventure">
+            </div>
+
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="why-section">
+        <div class="container">
+
+            <div class="section-heading">
+                <small>WHY TWENDE ADVENTURE?</small>
+                <h2>Travel With Us</h2>
+                <p>We aim to make every adventure enjoyable and memorable.</p>
+            </div>
+
+            <div class="why-grid">
+
+                <div class="why-card">
+                    <div class="symbol">🌍</div>
+                    <h3>Amazing Destinations</h3>
+                    <p>Discover beautiful places and new experiences.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="symbol">🤝</div>
+                    <h3>Great Company</h3>
+                    <p>Meet people and create memorable experiences together.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="symbol">🏞️</div>
+                    <h3>Exciting Activities</h3>
+                    <p>Enjoy outdoor experiences and adventures.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- BOOKING -->
+    <section class="booking-section" id="booking">
+        <div class="container">
+
+            <div class="section-heading">
+                <small>PLAN YOUR NEXT ADVENTURE</small>
+                <h2>Book Your Experience</h2>
+                <p>Send us your details and our team will get back to you.</p>
+            </div>
+
+            <form class="booking-form" id="bookingForm">
+
+                <input type="text" id="name" placeholder="Your full name" required>
+
+                <input type="tel" id="phone" placeholder="Your phone number" required>
+
+                <input type="text" id="trip" placeholder="Trip you are interested in" required>
+
+                <input type="number" id="people" placeholder="Number of people" min="1" required>
+
+                <input type="date" id="date" aria-label="Preferred travel date">
+
+                <textarea id="message" placeholder="Additional message"></textarea>
+
+                <button type="submit" class="btn btn-primary">
+                    Send Booking Request
+                </button>
+
+            </form>
+
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="container">
+
+            <div class="section-heading">
+                <small>GET IN TOUCH</small>
+                <h2>Contact Twende Adventure</h2>
+                <p>Have a question or want to join our next trip? Contact us.</p>
+            </div>
+
+            <div class="contact-grid">
+
+                <div class="contact-card">
+                    <h3>Call Us</h3>
+                    <p><a href="tel:0792523556">0792523556</a></p>
+                </div>
+
+                <div class="contact-card">
+                    <h3>WhatsApp</h3>
+                    <p>
+                        <a href="https://wa.me/254792523556" target="_blank">
+                            Chat with us
+                        </a>
+                    </p>
+                </div>
+
+                <div class="contact-card">
+                    <h3>Our Location</h3>
+                    <p>Kenya</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
     <footer>
-        <p>© 2026 Twende Adventure. All Rights Reserved.</p>
+        <div class="container">
+
+            <h2>TWENDE ADVENTURE</h2>
+
+            <p>Explore More. Live the Adventure.</p>
+
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#trips">Our Trips</a>
+                <a href="#updates">Updates</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+            <p>
+                Call or WhatsApp:
+                <a href="https://wa.me/254792523556" style="color:#f2a900;">
+                    0792523556
+                </a>
+            </p>
+
+            <div class="copyright">
+                <p>
+                    &copy; <span id="currentYear"></span>
+                    Twende Adventure. All rights reserved.
+                </p>
+            </div>
+
+        </div>
     </footer>
 
-    <script type="module" src="admin.js"></script>
+    <!-- WHATSAPP FLOATING BUTTON -->
+    <a class="whatsapp-float"
+       href="https://wa.me/254792523556"
+       target="_blank">
+        WhatsApp Us
+    </a>
+
+    <!-- BOOKING FORM AND YEAR -->
+    <script>
+        document.getElementById("currentYear").textContent =
+            new Date().getFullYear();
+
+        const bookingForm = document.getElementById("bookingForm");
+
+        bookingForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+            const trip = document.getElementById("trip").value.trim();
+            const people = document.getElementById("people").value;
+            const date = document.getElementById("date").value;
+            const message = document.getElementById("message").value.trim();
+
+            const bookingMessage =
+                "Hello Twende Adventure! I would like to make a booking.\n\n" +
+                "Name: " + name + "\n" +
+                "Phone: " + phone + "\n" +
+                "Trip: " + trip + "\n" +
+                "Number of people: " + people + "\n" +
+                "Preferred date: " + (date || "Not specified") + "\n" +
+                "Message: " + (message || "None");
+
+            const whatsappURL =
+                "https://wa.me/254792523556?text=" +
+                encodeURIComponent(bookingMessage);
+
+            window.open(whatsappURL, "_blank");
+        });
+    </script>
+
+    <!-- AUTOMATIC FIREBASE TRIPS -->
+    <script type="module">
+        import { db } from "./firebase.js";
+
+        import {
+            collection,
+            onSnapshot
+        } from "https://www.gstatic.com/firebasejs/13.4.0/firebase-firestore.js";
+
+        const tripContainer = document.getElementById("tripContainer");
+
+        function createTripCard(trip) {
+            const card = document.createElement("article");
+            card.className = "trip-card";
+
+            if (trip.image && trip.image.trim() !== "") {
+                const image = document.createElement("img");
+
+                image.src = trip.image;
+                image.alt = trip.name || "Twende Adventure trip";
+                image.loading = "lazy";
+
+                image.onerror = function() {
+                    this.style.display = "none";
+                };
+
+                card.appendChild(image);
+            }
+
+            const content = document.createElement("div");
+            content.className = "trip-card-content";
+
+            const title = document.createElement("h3");
+            title.textContent = trip.name || "Adventure Trip";
+
+            const location = document.createElement("p");
+            location.className = "trip-info";
+            location.textContent = "📍 " + (trip.destination || "Kenya");
+
+            const date = document.createElement("p");
+            date.className = "trip-info";
+            date.textContent = "📅 " + (trip.date || "Date to be announced");
+
+            const price = document.createElement("p");
+            price.className = "trip-price";
+            price.textContent = "KSh " +
+                Number(trip.price || 0).toLocaleString("en-KE");
+
+            const description = document.createElement("p");
+            description.className = "trip-description";
+            description.textContent = trip.description || "";
+
+            const bookLink = document.createElement("a");
+            bookLink.className = "trip-book";
+            bookLink.textContent = "Book This Trip";
+            bookLink.href =
+                "https://wa.me/254792523556?text=" +
+                encodeURIComponent(
+                    "Hello Twende Adventure! I am interested in booking " +
+                    (trip.name || "your trip") +
+                    ". Please share more information."
+                );
+            bookLink.target = "_blank";
+            bookLink.rel = "noopener";
+
+            content.appendChild(title);
+            content.appendChild(location);
+            content.appendChild(date);
+            content.appendChild(price);
+            content.appendChild(description);
+            content.appendChild(bookLink);
+
+            card.appendChild(content);
+
+            return card;
+        }
+
+        onSnapshot(
+            collection(db, "trips"),
+
+            (snapshot) => {
+                tripContainer.innerHTML = "";
+
+                if (snapshot.empty) {
+                    tripContainer.innerHTML =
+                        '<p class="loading-message">No upcoming trips available at the moment. Please check again soon!</p>';
+                    return;
+                }
+
+                const trips = snapshot.docs.map(item => ({
+                    id: item.id,
+                    ...item.data()
+                }));
+
+                trips.sort((a, b) => {
+                    return String(a.date || "").localeCompare(
+                        String(b.date || "")
+                    );
+                });
+
+                trips.forEach(trip => {
+                    tripContainer.appendChild(createTripCard(trip));
+                });
+            },
+
+            (error) => {
+                console.error("Firebase trips error:", error);
+
+                tripContainer.innerHTML =
+                    '<p class="error-message">Unable to load trips. Please try again later.</p>';
+            }
+        );
+    </script>
+
+    <!-- AUTOMATIC FIREBASE POSTS -->
+    <script type="module" src="public-posts.js"></script>
+
 </body>
 </html>

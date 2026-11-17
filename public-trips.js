@@ -3,85 +3,133 @@ import { db } from "./firebase.js";
 
 import {
     collection,
-    getDocs
+    onSnapshot
 } from "https://www.gstatic.com/firebasejs/13.4.0/firebase-firestore.js";
 
-const tripContainer = document.getElementById("tripContainer");
-const tripSelect = document.getElementById("trip");
+const postsContainer = document.getElementById("postsContainer");
 
-function escapeHTML(value = "") {
-    return String(value).replace(/[&<>"']/g, character => ({
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&#039;"
-    })[character]);
-}
+if (!postsContainer) {
+    console.error("Posts container was not found in index.html");
+} else {
 
-async function displayTrips() {
-    try {
-        const snapshot = await getDocs(collection(db, "trips"));
+    function formatDate(timestamp) {
+        if (!timestamp) return "";
 
-        tripContainer.innerHTML = "";
+        try {
+            const date = timestamp.toDate
+                ? timestamp.toDate()
+                : new Date(timestamp);
 
-        if (snapshot.empty) {
-            tripContainer.innerHTML =
-                "<p>No adventures available at the moment. Check back soon!</p>";
-            return;
+            if (isNaN(date.getTime())) return "";
+
+            return date.toLocaleDateString("en-KE", {
+                day: "numeric",
+                month: "long",
+                year: "numeric"
+            });
+        } catch (error) {
+            return "";
+        }
+    }
+
+    function createPostCard(post) {
+        const card = document.createElement("article");
+        card.className = "post-card";
+
+        // Post image
+        if (post.image && post.image.trim() !== "") {
+            const image = document.createElement("img");
+
+            image.src = post.image;
+            image.alt = post.title || "Twende Adventure update";
+            image.className = "post-image";
+            image.loading = "lazy";
+
+            image.onerror = () => {
+                image.remove();
+            };
+
+            card.appendChild(image);
         }
 
-        snapshot.forEach((item) => {
-            const trip = item.data();
+        // Post content
+        const content = document.createElement("div");
+        content.className = "post-content";
 
-            const card = document.createElement("div");
-            card.className = "trip-card";
+        const title = document.createElement("h3");
+        title.textContent = post.title || "Twende Adventure Update";
 
-            const image = trip.image
-                ? `<img src="${escapeHTML(trip.image)}" alt="${escapeHTML(trip.name)}" onerror="this.style.display='none'">`
-                : "";
+        const description = document.createElement("p");
+        description.textContent = post.content || "";
 
-            card.innerHTML = `
-                ${image}
-                <div class="trip-info">
-                    <span class="location">${escapeHTML(trip.destination)}</span>
-                    <h3>${escapeHTML(trip.name)}</h3>
-                    <p>${escapeHTML(trip.description)}</p>
-                    <p><strong>Travel Date:</strong> ${escapeHTML(trip.date)}</p>
-                    <h4>KSh ${Number(trip.price).toLocaleString("en-KE")}
-                        <small>/ person</small>
-                    </h4>
-                    <a href="#booking" class="btn book-trip"
-                       data-trip="${escapeHTML(trip.name)}">
-                       Book This Trip
-                    </a>
-                </div>
+        content.appendChild(title);
+        content.appendChild(description);
+
+        // Publication date
+        const dateText = formatDate(post.publishedAt);
+
+        if (dateText) {
+            const date = document.createElement("small");
+            date.className = "post-date";
+            date.textContent = "Published: " + dateText;
+
+            content.appendChild(date);
+        }
+
+        card.appendChild(content);
+
+        return card;
+    }
+
+    // Automatically listen for new posts and deletions
+    onSnapshot(
+        collection(db, "posts"),
+
+        (snapshot) => {
+            postsContainer.innerHTML = "";
+
+            if (snapshot.empty) {
+                postsContainer.innerHTML = `
+                    <p class="no-posts">
+                        No updates available yet.
+                        Check back soon!
+                    </p>
+                `;
+                return;
+            }
+
+            const posts = snapshot.docs.map(document => ({
+                id: document.id,
+                ...document.data()
+            }));
+
+            // Newest posts first
+            posts.sort((a, b) => {
+                const timeA = a.publishedAt?.toMillis
+                    ? a.publishedAt.toMillis()
+                    : 0;
+
+                const timeB = b.publishedAt?.toMillis
+                    ? b.publishedAt.toMillis()
+                    : 0;
+
+                return timeB - timeA;
+            });
+
+            posts.forEach(post => {
+                postsContainer.appendChild(createPostCard(post));
+            });
+        },
+
+        (error) => {
+            console.error("Firebase posts error:", error);
+
+            postsContainer.innerHTML = `
+                <p class="no-posts">
+                    Unable to load updates.
+                    Please try again later.
+                </p>
             `;
-
-            tripContainer.appendChild(card);
-
-            const option = document.createElement("option");
-            option.value = trip.name;
-            option.textContent = trip.name;
-            tripSelect.appendChild(option);
-        });
-
-    } catch (error) {
-        console.error("Trip loading error:", error);
-
-        tripContainer.innerHTML =
-            "<p>Unable to load trips. Please try again later.</p>";
-    }
+        }
+    );
 }
-
-// Select the trip when a visitor clicks Book This Trip
-tripContainer.addEventListener("click", (event) => {
-    const button = event.target.closest(".book-trip");
-
-    if (button) {
-        tripSelect.value = button.dataset.trip;
-    }
-});
-
-// Load trips when the page opens
-displayTrips();

@@ -7,22 +7,27 @@
 
     <title>Twende Adventure | Explore Kenya</title>
 
-    <meta name="description" content="Discover unforgettable adventures, trips and travel experiences across Kenya with Twende Adventure.">
+    <meta name="description" content="Discover unforgettable adventures, trips and travel experiences across Kenya with Twende Adventure. Book your next adventure today.">
+
+    <meta name="keywords" content="Twende Adventure, Kenya tours, travel, adventure trips, Camp Ndunda Falls, Kenya tourism">
+
+    <meta name="theme-color" content="#08783e">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --green: #16834a;
-            --dark-green: #075b32;
+            --green: #08783e;
+            --dark-green: #04552b;
             --light-green: #eaf7ef;
-            --orange: #f49a27;
+            --orange: #f5a623;
             --dark: #17251d;
-            --grey: #68756d;
+            --text: #65736a;
             --white: #ffffff;
+            --background: #f8faf8;
+            --shadow: 0 8px 28px rgba(0,0,0,.09);
         }
 
         * {
@@ -35,12 +40,13 @@
         body {
             font-family: 'Poppins', sans-serif;
             color: var(--dark);
-            background: #fff;
+            background: var(--white);
             line-height: 1.7;
         }
 
         a {
             text-decoration: none;
+            color: inherit;
         }
 
         img {
@@ -54,18 +60,33 @@
             margin: auto;
         }
 
-        /* NAVIGATION */
+        /* TOP BAR */
+        .topbar {
+            background: var(--dark-green);
+            color: white;
+            padding: 8px 5%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-size: 12px;
+        }
 
+        .topbar a {
+            color: white;
+        }
+
+        /* NAVIGATION */
         header {
             background: white;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 3px 15px rgba(0,0,0,.08);
+            box-shadow: 0 2px 12px rgba(0,0,0,.07);
         }
 
         .navbar {
-            min-height: 80px;
+            min-height: 82px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -75,29 +96,40 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
-            color: var(--green);
-            font-size: 21px;
-            font-weight: 800;
+            gap: 12px;
         }
 
         .logo img {
-            width: 58px;
-            height: 58px;
+            width: 62px;
+            height: 62px;
             object-fit: contain;
+        }
+
+        .logo-text {
+            font-size: 21px;
+            font-weight: 800;
+            color: var(--green);
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            display: block;
+            font-size: 10px;
+            letter-spacing: 3px;
+            color: #777;
+            font-weight: 500;
         }
 
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 25px;
+            gap: 23px;
             list-style: none;
         }
 
         .nav-links a {
-            color: #26342b;
+            font-size: 13px;
             font-weight: 600;
-            font-size: 14px;
             transition: .3s;
         }
 
@@ -108,120 +140,128 @@
         .nav-links .nav-book {
             background: var(--green);
             color: white;
-            padding: 11px 20px;
+            padding: 12px 19px;
             border-radius: 30px;
+        }
+
+        .nav-links .nav-book:hover {
+            background: var(--dark-green);
+            color: white;
         }
 
         .menu-toggle {
             display: none;
             border: none;
-            background: var(--green);
-            color: white;
-            padding: 9px 13px;
-            border-radius: 6px;
-            font-size: 23px;
+            background: none;
+            font-size: 28px;
             cursor: pointer;
+            color: var(--green);
         }
 
         /* HERO */
-
         .hero {
             min-height: 620px;
             display: flex;
             align-items: center;
-            color: white;
             background:
-                linear-gradient(90deg, rgba(0,0,0,.75), rgba(0,0,0,.15)),
-                url("https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=2000&q=85")
-                center/cover no-repeat;
+                linear-gradient(90deg, rgba(0,35,18,.82), rgba(0,35,18,.25)),
+                url("https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=2000&q=85");
+            background-position: center;
+            background-size: cover;
+            color: white;
         }
 
         .hero-content {
-            max-width: 720px;
+            max-width: 750px;
             padding: 100px 0;
         }
 
-        .hero-label {
+        .hero-tag {
             display: inline-block;
-            background: rgba(255,255,255,.17);
+            background: rgba(255,255,255,.16);
             border: 1px solid rgba(255,255,255,.5);
             padding: 8px 17px;
             border-radius: 30px;
+            font-size: 12px;
+            letter-spacing: 2px;
             margin-bottom: 22px;
-            font-size: 13px;
-            letter-spacing: 1px;
         }
 
         .hero h1 {
             font-size: clamp(38px, 6vw, 68px);
             line-height: 1.15;
-            margin-bottom: 20px;
+            font-weight: 800;
+            margin-bottom: 22px;
         }
 
         .hero h1 span {
-            color: #ffc15d;
+            color: var(--orange);
         }
 
         .hero p {
-            max-width: 570px;
-            font-size: 17px;
-            margin-bottom: 30px;
+            max-width: 600px;
+            font-size: 16px;
+            margin-bottom: 32px;
             color: #f1f1f1;
         }
 
         .btn {
             display: inline-block;
-            background: var(--green);
-            color: white;
-            padding: 14px 27px;
+            padding: 14px 25px;
             border-radius: 30px;
             font-weight: 600;
+            font-size: 14px;
             transition: .3s;
-            border: none;
             cursor: pointer;
+            border: none;
         }
 
-        .btn:hover {
-            background: var(--dark-green);
-            transform: translateY(-3px);
-        }
-
-        .btn-orange {
+        .btn-primary {
             background: var(--orange);
             color: #17251d;
         }
 
-        .btn-orange:hover {
-            background: #e88a13;
+        .btn-primary:hover {
+            background: white;
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            border: 2px solid white;
+            color: white;
+            margin-left: 10px;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--green);
         }
 
         /* INTRO STRIP */
-
         .intro-strip {
-            background: var(--dark-green);
+            background: var(--green);
             color: white;
-            padding: 23px 0;
+            padding: 24px 0;
         }
 
         .intro-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
             text-align: center;
-            gap: 20px;
         }
 
-        .intro-grid strong {
-            display: block;
+        .intro-item h3 {
             font-size: 17px;
+            margin-bottom: 3px;
         }
 
-        .intro-grid span {
-            font-size: 13px;
-            color: #d6eadc;
+        .intro-item p {
+            font-size: 12px;
+            color: #d9f1e2;
         }
 
         /* GENERAL SECTIONS */
-
         section {
             padding: 85px 0;
         }
@@ -232,25 +272,25 @@
             margin: 0 auto 45px;
         }
 
-        .section-heading .eyebrow {
+        .eyebrow {
             color: var(--green);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
             font-size: 12px;
+            letter-spacing: 3px;
+            font-weight: 700;
         }
 
         .section-heading h2 {
             font-size: clamp(28px, 4vw, 40px);
             margin: 10px 0;
+            color: var(--dark);
         }
 
         .section-heading p {
-            color: var(--grey);
+            color: var(--text);
+            font-size: 14px;
         }
 
         /* ABOUT */
-
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -264,55 +304,56 @@
 
         .about-image img {
             width: 100%;
-            height: 420px;
+            height: 430px;
             object-fit: cover;
             border-radius: 18px;
+            box-shadow: var(--shadow);
         }
 
-        .about-image::after {
-            content: "";
+        .about-badge {
             position: absolute;
-            width: 100px;
-            height: 100px;
-            background: var(--orange);
-            border-radius: 15px;
             right: -15px;
-            bottom: -15px;
-            z-index: -1;
+            bottom: 25px;
+            background: var(--orange);
+            color: var(--dark);
+            padding: 18px 22px;
+            border-radius: 12px;
+            font-weight: 700;
         }
 
         .about-text h2 {
-            font-size: 36px;
+            font-size: 35px;
             line-height: 1.3;
-            margin: 10px 0 20px;
+            margin: 12px 0 20px;
         }
 
         .about-text p {
-            color: var(--grey);
-            margin-bottom: 20px;
+            color: var(--text);
+            font-size: 14px;
+            margin-bottom: 17px;
         }
 
-        .check-list {
+        .about-points {
             list-style: none;
-            margin-bottom: 25px;
+            margin: 22px 0;
         }
 
-        .check-list li {
+        .about-points li {
             margin: 10px 0;
-            font-weight: 500;
+            font-size: 14px;
+            font-weight: 600;
         }
 
-        .check-list li::before {
+        .about-points li::before {
             content: "✓";
             color: var(--green);
-            font-weight: bold;
+            font-weight: 800;
             margin-right: 10px;
         }
 
         /* DESTINATIONS */
-
         .destinations {
-            background: #f6faf7;
+            background: var(--background);
         }
 
         .destination-grid {
@@ -323,10 +364,10 @@
 
         .destination-card {
             position: relative;
-            overflow: hidden;
-            height: 350px;
+            height: 320px;
             border-radius: 16px;
-            box-shadow: 0 8px 25px rgba(0,0,0,.09);
+            overflow: hidden;
+            box-shadow: var(--shadow);
         }
 
         .destination-card img {
@@ -345,7 +386,7 @@
             inset: 0;
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
+            justify-content: end;
             padding: 25px;
             color: white;
             background: linear-gradient(transparent, rgba(0,0,0,.8));
@@ -355,8 +396,11 @@
             font-size: 23px;
         }
 
-        /* TRIPS */
+        .destination-overlay p {
+            font-size: 12px;
+        }
 
+        /* TRIPS */
         .trips-section {
             background: white;
         }
@@ -368,15 +412,16 @@
         }
 
         .trip-card {
-            border-radius: 15px;
-            overflow: hidden;
             background: white;
-            box-shadow: 0 6px 25px rgba(0,0,0,.09);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid #edf0ed;
             transition: .3s;
         }
 
         .trip-card:hover {
-            transform: translateY(-7px);
+            transform: translateY(-6px);
         }
 
         .trip-card img {
@@ -385,126 +430,189 @@
             object-fit: cover;
         }
 
-        .trip-info {
+        .trip-content {
             padding: 22px;
         }
 
-        .trip-info .location {
-            color: var(--green);
+        .trip-content h3 {
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .trip-content p {
+            color: var(--text);
             font-size: 13px;
-            font-weight: 700;
-        }
-
-        .trip-info h3 {
-            font-size: 21px;
-            margin: 8px 0;
-        }
-
-        .trip-info p {
-            color: var(--grey);
             margin-bottom: 12px;
+            white-space: pre-wrap;
         }
 
-        .trip-info h4 {
+        .trip-price {
             color: var(--green);
-            font-size: 21px;
-            margin: 15px 0;
+            font-size: 19px;
+            font-weight: 800;
+            margin: 12px 0;
         }
 
-        .trip-info h4 small {
+        .trip-content a {
+            display: inline-block;
+            background: var(--green);
+            color: white;
+            padding: 10px 18px;
+            border-radius: 25px;
             font-size: 12px;
-            color: var(--grey);
+            font-weight: 600;
         }
 
-        /* GALLERY */
-
-        .gallery {
-            background: var(--light-green);
+        /* LATEST UPDATES */
+        .posts-section {
+            background: #f6faf7;
         }
 
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-        }
-
-        .gallery-item {
-            height: 230px;
-            overflow: hidden;
-            border-radius: 13px;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: .5s;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        /* WHY CHOOSE US */
-
-        .features-grid {
+        .posts-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 25px;
         }
 
-        .feature-card {
-            padding: 30px;
-            border-radius: 15px;
-            background: #f8faf8;
-            text-align: center;
+        .post-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
             transition: .3s;
         }
 
-        .feature-card:hover {
-            background: var(--light-green);
-            transform: translateY(-5px);
+        .post-card:hover {
+            transform: translateY(-6px);
         }
 
-        .feature-icon {
-            font-size: 38px;
+        .post-image {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+        }
+
+        .post-content {
+            padding: 23px;
+        }
+
+        .post-content h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+
+        .post-content p {
+            color: var(--text);
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+            font-size: 13px;
+        }
+
+        .post-date {
+            display: block;
+            margin-top: 15px;
+            color: var(--green);
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+        .no-posts {
+            grid-column: 1 / -1;
+            text-align: center;
+            color: var(--text);
+            padding: 25px;
+        }
+
+        /* GALLERY */
+        .gallery {
+            background: white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 210px;
+            gap: 15px;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: .3s;
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.025);
+        }
+
+        .gallery-grid .gallery-large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        /* WHY CHOOSE US */
+        .why-us {
+            background: var(--light-green);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .why-card {
+            background: white;
+            padding: 30px 24px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,.04);
+        }
+
+        .why-icon {
+            font-size: 35px;
             margin-bottom: 12px;
         }
 
-        .feature-card h3 {
+        .why-card h3 {
+            font-size: 17px;
             margin-bottom: 10px;
         }
 
-        .feature-card p {
-            color: var(--grey);
-            font-size: 14px;
+        .why-card p {
+            color: var(--text);
+            font-size: 13px;
         }
 
         /* BOOKING */
-
         .booking-section {
             background:
-                linear-gradient(rgba(4,65,35,.9), rgba(4,65,35,.9)),
-                url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1800&q=80")
-                center/cover;
+                linear-gradient(rgba(0,45,23,.88), rgba(0,45,23,.88)),
+                url("https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1600&q=80");
+            background-position: center;
+            background-size: cover;
             color: white;
         }
 
         .booking-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: .9fr 1.1fr;
             gap: 50px;
             align-items: center;
         }
 
         .booking-text h2 {
-            font-size: 40px;
+            font-size: 38px;
             line-height: 1.3;
-            margin-bottom: 20px;
+            margin: 15px 0;
         }
 
         .booking-text p {
-            color: #d8e9de;
+            color: #dce9df;
+            font-size: 14px;
             margin-bottom: 20px;
         }
 
@@ -512,12 +620,19 @@
             background: white;
             color: var(--dark);
             padding: 32px;
-            border-radius: 17px;
+            border-radius: 18px;
+            box-shadow: var(--shadow);
         }
 
         .booking-form h3 {
-            font-size: 25px;
+            font-size: 23px;
             margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
         }
 
         .form-group {
@@ -526,8 +641,8 @@
 
         .form-group label {
             display: block;
+            font-size: 12px;
             font-weight: 600;
-            font-size: 13px;
             margin-bottom: 6px;
         }
 
@@ -535,10 +650,11 @@
         .form-group select,
         .form-group textarea {
             width: 100%;
-            padding: 13px;
-            border: 1px solid #dce5de;
+            padding: 12px;
+            border: 1px solid #dce3dd;
             border-radius: 8px;
             font-family: inherit;
+            font-size: 13px;
             outline: none;
         }
 
@@ -548,13 +664,16 @@
             border-color: var(--green);
         }
 
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
         .booking-form button {
             width: 100%;
-            font-size: 15px;
         }
 
         /* CONTACT */
-
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -562,27 +681,28 @@
         }
 
         .contact-card {
-            padding: 28px;
+            padding: 25px;
+            background: var(--background);
+            border-radius: 14px;
             text-align: center;
-            border-radius: 15px;
-            background: #f7faf8;
         }
 
         .contact-card h3 {
-            margin: 10px 0;
+            margin: 8px 0;
+            font-size: 17px;
         }
 
-        .contact-card p {
-            color: var(--grey);
-        }
-
+        .contact-card p,
         .contact-card a {
-            color: var(--green);
-            font-weight: 600;
+            color: var(--text);
+            font-size: 13px;
+        }
+
+        .contact-icon {
+            font-size: 30px;
         }
 
         /* FOOTER */
-
         footer {
             background: #10251a;
             color: white;
@@ -591,7 +711,7 @@
 
         .footer-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
+            grid-template-columns: 1.4fr 1fr 1fr;
             gap: 40px;
             margin-bottom: 35px;
         }
@@ -600,111 +720,126 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            font-size: 22px;
-            font-weight: 800;
             margin-bottom: 15px;
         }
 
         .footer-brand img {
-            width: 55px;
-            height: 55px;
+            width: 60px;
+            height: 60px;
             object-fit: contain;
         }
 
-        footer p,
-        footer a {
-            color: #c7d6cc;
-            font-size: 14px;
+        .footer-brand h3 {
+            color: white;
         }
 
-        footer h3 {
+        .footer-column p {
+            color: #c0cec4;
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .footer-column h3 {
             margin-bottom: 15px;
+            font-size: 17px;
         }
 
-        footer ul {
+        .footer-column ul {
             list-style: none;
         }
 
-        footer li {
-            margin: 8px 0;
+        .footer-column li {
+            margin-bottom: 9px;
+            font-size: 13px;
+            color: #c0cec4;
         }
 
-        footer a:hover {
-            color: #ffc15d;
+        .footer-column a:hover {
+            color: var(--orange);
         }
 
-        .copyright {
-            border-top: 1px solid #365141;
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,.15);
             padding-top: 20px;
             text-align: center;
+            color: #c0cec4;
+            font-size: 12px;
         }
 
         /* WHATSAPP BUTTON */
-
         .whatsapp-float {
             position: fixed;
             right: 22px;
             bottom: 22px;
-            z-index: 999;
-            background: #25D366;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: #25d366;
             color: white;
-            padding: 13px 19px;
-            border-radius: 35px;
-            font-weight: 700;
-            box-shadow: 0 5px 15px rgba(0,0,0,.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            z-index: 1500;
+            box-shadow: 0 5px 20px rgba(0,0,0,.2);
         }
 
         /* BACK TO TOP */
-
-        #backToTop {
-            display: none;
+        .back-to-top {
             position: fixed;
-            bottom: 85px;
-            right: 25px;
-            z-index: 998;
-            border: none;
+            right: 27px;
+            bottom: 92px;
+            width: 42px;
+            height: 42px;
             background: var(--green);
             color: white;
-            padding: 12px 16px;
             border-radius: 50%;
-            font-size: 19px;
-            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1400;
+            font-size: 20px;
         }
 
         /* RESPONSIVE DESIGN */
+        @media(max-width: 950px) {
+            .nav-links {
+                gap: 13px;
+            }
 
-        @media(max-width: 900px) {
+            .nav-links a {
+                font-size: 11px;
+            }
+
+            .trip-container,
+            .posts-container,
+            .destination-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             .about-grid,
             .booking-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .destination-grid,
-            .trip-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
             }
         }
 
         @media(max-width: 700px) {
-            .navbar {
-                min-height: 70px;
+            .topbar {
+                justify-content: center;
+                text-align: center;
             }
 
-            .logo {
-                font-size: 17px;
+            .navbar {
+                min-height: 72px;
             }
 
             .logo img {
-                width: 48px;
-                height: 48px;
+                width: 50px;
+                height: 50px;
+            }
+
+            .logo-text {
+                font-size: 17px;
             }
 
             .menu-toggle {
@@ -714,12 +849,14 @@
             .nav-links {
                 display: none;
                 position: absolute;
-                top: 100%;
+                top: 72px;
                 left: 0;
                 width: 100%;
                 background: white;
                 flex-direction: column;
-                padding: 25px;
+                align-items: stretch;
+                padding: 18px 5%;
+                gap: 0;
                 box-shadow: 0 8px 15px rgba(0,0,0,.1);
             }
 
@@ -727,40 +864,79 @@
                 display: flex;
             }
 
+            .nav-links li {
+                padding: 12px 0;
+                border-bottom: 1px solid #eee;
+            }
+
+            .nav-links a {
+                font-size: 14px;
+            }
+
+            .nav-links .nav-book {
+                display: inline-block;
+            }
+
             .hero {
-                min-height: 540px;
+                min-height: 560px;
             }
 
             .hero-content {
-                padding: 75px 0;
+                padding: 70px 0;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .btn {
+                padding: 12px 17px;
+                font-size: 12px;
             }
 
             .intro-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
 
-            .destination-grid,
+            section {
+                padding: 65px 0;
+            }
+
+            .about-grid,
+            .booking-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image img {
+                height: 300px;
+            }
+
+            .about-badge {
+                right: 10px;
+            }
+
             .trip-container,
-            .features-grid,
-            .contact-grid,
-            .footer-grid {
+            .posts-container,
+            .destination-grid,
+            .why-grid,
+            .contact-grid {
                 grid-template-columns: 1fr;
             }
 
             .gallery-grid {
                 grid-template-columns: repeat(2, 1fr);
+                grid-auto-rows: 160px;
             }
 
-            .gallery-item {
-                height: 160px;
+            .gallery-grid .gallery-large {
+                grid-column: span 2;
+                grid-row: span 1;
             }
 
-            section {
-                padding: 60px 0;
-            }
-
-            .about-image img {
-                height: 300px;
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
             }
 
             .booking-form {
@@ -768,14 +944,16 @@
             }
 
             .booking-text h2 {
-                font-size: 31px;
+                font-size: 30px;
             }
 
-            .whatsapp-float {
-                right: 12px;
-                bottom: 12px;
-                padding: 10px 14px;
-                font-size: 13px;
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .btn-outline {
+                margin-left: 5px;
             }
         }
     </style>
@@ -783,512 +961,544 @@
 
 <body>
 
-<!-- NAVIGATION -->
-<header>
-    <div class="container navbar">
-
-        <a href="#home" class="logo">
-            <img src="./images/logo.png"
-                 alt="Twende Adventure Logo"
-                 onerror="this.onerror=null; this.src='https://placehold.co/100x100/16834a/ffffff?text=TA';">
-            <span>Twende Adventure</span>
-        </a>
-
-        <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu">
-            ☰
-        </button>
-
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#destinations">Destinations</a></li>
-            <li><a href="#trips">Our Trips</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#booking" class="nav-book">Book Now</a></li>
-        </ul>
-
-    </div>
-</header>
-
-
-<!-- HERO SECTION -->
-<section class="hero" id="home">
-    <div class="container">
-        <div class="hero-content">
-
-            <span class="hero-label">EXPLORE • EXPERIENCE • ENJOY</span>
-
-            <h1>
-                Discover Kenya.<br>
-                <span>Experience Adventure.</span>
-            </h1>
-
-            <p>
-                Escape the ordinary and explore amazing destinations,
-                beautiful landscapes and unforgettable experiences
-                with Twende Adventure.
-            </p>
-
-            <a href="#trips" class="btn btn-orange">Explore Our Trips →</a>
-
+    <!-- TOP BAR -->
+    <div class="topbar">
+        <div>Explore Kenya. Experience Adventure.</div>
+        <div>
+            Call us:
+            <a href="tel:0792523556">0792 523 556</a>
+            |
+            <a href="https://wa.me/254792523556" target="_blank">WhatsApp</a>
         </div>
     </div>
-</section>
 
+    <!-- NAVIGATION -->
+    <header>
+        <div class="container navbar">
 
-<!-- INTRO STRIP -->
-<div class="intro-strip">
-    <div class="container intro-grid">
+            <a href="#home" class="logo">
+                <img src="images/logo.png" alt="Twende Adventure Logo"
+                     onerror="this.style.display='none'">
+                <div class="logo-text">
+                    Twende Adventure
+                    <span>EXPLORE • DISCOVER • EXPERIENCE</span>
+                </div>
+            </a>
 
-        <div>
-            <strong>Adventure Awaits</strong>
-            <span>Discover exciting destinations</span>
-        </div>
+            <button class="menu-toggle" id="menuToggle"
+                    aria-label="Open navigation menu">☰</button>
 
-        <div>
-            <strong>Unforgettable Memories</strong>
-            <span>Enjoy every moment of the journey</span>
-        </div>
-
-        <div>
-            <strong>Travel Together</strong>
-            <span>Make every trip special</span>
-        </div>
-
-    </div>
-</div>
-
-
-<!-- ABOUT SECTION -->
-<section id="about">
-    <div class="container about-grid">
-
-        <div class="about-image">
-            <img
-                src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1000&q=85"
-                alt="Beautiful green nature and forest">
-        </div>
-
-        <div class="about-text">
-
-            <span class="eyebrow">ABOUT TWENDE ADVENTURE</span>
-
-            <h2>Let's Explore The Beauty Of Nature Together</h2>
-
-            <p>
-                Twende Adventure is all about discovering beautiful
-                places, enjoying exciting activities and creating
-                memories that last a lifetime.
-            </p>
-
-            <p>
-                From waterfalls and nature trails to outdoor adventures
-                and group trips, we make every journey an experience
-                worth remembering.
-            </p>
-
-            <ul class="check-list">
-                <li>Exciting travel experiences</li>
-                <li>Beautiful destinations</li>
-                <li>Fun group adventures</li>
-                <li>Memories worth sharing</li>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#destinations">Destinations</a></li>
+                <li><a href="#trips">Our Trips</a></li>
+                <li><a href="#updates">Latest Updates</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#booking" class="nav-book">Book Now</a></li>
             </ul>
 
-            <a href="#booking" class="btn">Plan Your Adventure</a>
-
         </div>
+    </header>
 
-    </div>
-</section>
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
 
+                <span class="hero-tag">WELCOME TO TWENDE ADVENTURE</span>
 
-<!-- DESTINATIONS -->
-<section class="destinations" id="destinations">
-    <div class="container">
+                <h1>
+                    Discover Kenya.<br>
+                    <span>Live The Adventure.</span>
+                </h1>
 
-        <div class="section-heading">
-            <span class="eyebrow">EXPLORE WITH US</span>
-            <h2>Discover Amazing Destinations</h2>
-            <p>
-                Explore beautiful places and experience the magic
-                of travelling across Kenya.
-            </p>
-        </div>
-
-        <div class="destination-grid">
-
-            <div class="destination-card">
-                <img
-                    src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=900&q=85"
-                    alt="Wildlife in a natural landscape">
-                <div class="destination-overlay">
-                    <h3>Wildlife Adventures</h3>
-                    <p>Discover the beauty of nature.</p>
-                </div>
-            </div>
-
-            <div class="destination-card">
-                <img
-                    src="https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=900&q=85"
-                    alt="Beautiful waterfall">
-                <div class="destination-overlay">
-                    <h3>Waterfall Experiences</h3>
-                    <p>Enjoy refreshing natural escapes.</p>
-                </div>
-            </div>
-
-            <div class="destination-card">
-                <img
-                    src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=85"
-                    alt="Mountain adventure">
-                <div class="destination-overlay">
-                    <h3>Mountain Adventures</h3>
-                    <p>Explore breathtaking landscapes.</p>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-
-<!-- TRIPS FROM FIREBASE -->
-<section class="trips-section" id="trips">
-    <div class="container">
-
-        <div class="section-heading">
-            <span class="eyebrow">YOUR NEXT JOURNEY</span>
-            <h2>Upcoming Adventures</h2>
-            <p>
-                Find your next adventure and book your place.
-                New trips can be added through our admin dashboard.
-            </p>
-        </div>
-
-        <div class="trip-container" id="tripContainer">
-            <p>Loading available adventures...</p>
-        </div>
-
-    </div>
-</section>
-
-
-<!-- GALLERY -->
-<section class="gallery" id="gallery">
-    <div class="container">
-
-        <div class="section-heading">
-            <span class="eyebrow">TRAVEL MOMENTS</span>
-            <h2>Adventure In Pictures</h2>
-            <p>
-                Beautiful scenery, exciting experiences and
-                unforgettable travel moments.
-            </p>
-        </div>
-
-        <div class="gallery-grid">
-
-            <div class="gallery-item">
-                <img
-                    src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=700&q=80"
-                    alt="Beautiful outdoor landscape">
-            </div>
-
-            <div class="gallery-item">
-                <img
-                    src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=700&q=80"
-                    alt="Mountain lake">
-            </div>
-
-            <div class="gallery-item">
-                <img
-                    src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=700&q=80"
-                    alt="Travel scenery">
-            </div>
-
-            <div class="gallery-item">
-                <img
-                    src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=700&q=80"
-                    alt="Sunrise over nature">
-            </div>
-
-            <div class="gallery-item">
-                <img
-                    src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=700&q=80"
-                    alt="Green forest">
-            </div>
-
-            <div class="gallery-item">
-                <img
-                    src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=700&q=80"
-                    alt="Beautiful mountain scenery">
-            </div>
-
-            <div class="gallery-item">
-                <img
-                    src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=700&q=80"
-                    alt="Ocean and water">
-            </div>
-
-            <div class="gallery-item">
-                <img
-                    src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=700&q=80"
-                    alt="Wildlife adventure">
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-
-<!-- WHY CHOOSE US -->
-<section id="why-us">
-    <div class="container">
-
-        <div class="section-heading">
-            <span class="eyebrow">WHY TRAVEL WITH US?</span>
-            <h2>Make Every Journey Special</h2>
-            <p>
-                We want every adventure to be exciting,
-                enjoyable and memorable.
-            </p>
-        </div>
-
-        <div class="features-grid">
-
-            <div class="feature-card">
-                <div class="feature-icon">🌍</div>
-                <h3>Amazing Destinations</h3>
-                <p>Discover beautiful places and exciting experiences.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🤝</div>
-                <h3>Group Experiences</h3>
-                <p>Meet people, make friends and enjoy travelling together.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">📸</div>
-                <h3>Lasting Memories</h3>
-                <p>Enjoy moments and experiences worth remembering.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🏞️</div>
-                <h3>Nature Adventures</h3>
-                <p>Explore waterfalls, forests and beautiful landscapes.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🎯</div>
-                <h3>Exciting Activities</h3>
-                <p>Enjoy outdoor activities and discover new experiences.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">💚</div>
-                <h3>Adventure Spirit</h3>
-                <p>Escape routine and make time for exploration.</p>
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-
-<!-- BOOKING SECTION -->
-<section class="booking-section" id="booking">
-    <div class="container booking-grid">
-
-        <div class="booking-text">
-            <span class="eyebrow">YOUR ADVENTURE STARTS HERE</span>
-
-            <h2>Ready For Your Next Adventure?</h2>
-
-            <p>
-                Choose your trip, send us your booking details
-                and our team will help you with the next steps.
-            </p>
-
-            <a href="https://wa.me/254792523556"
-               target="_blank"
-               class="btn btn-orange">
-                Chat With Us on WhatsApp
-            </a>
-        </div>
-
-        <form class="booking-form" id="bookingForm">
-
-            <h3>Book Your Adventure</h3>
-
-            <div class="form-group">
-                <label for="name">Your Full Name</label>
-                <input type="text" id="name" required
-                       placeholder="Enter your full name">
-            </div>
-
-            <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" required
-                       placeholder="Enter your phone number">
-            </div>
-
-            <div class="form-group">
-                <label for="trip">Choose Your Trip</label>
-                <select id="trip" required>
-                    <option value="">Select a trip</option>
-                    <option value="Twende Camp Ndunda Falls, Embu">
-                        Twende Camp Ndunda Falls, Embu
-                    </option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="people">Number of People</label>
-                <input type="number" id="people" min="1" required
-                       placeholder="How many people?">
-            </div>
-
-            <div class="form-group">
-                <label for="date">Preferred Travel Date</label>
-                <input type="date" id="date" required>
-            </div>
-
-            <div class="form-group">
-                <label for="message">Additional Message</label>
-                <textarea id="message" rows="3"
-                          placeholder="Any additional information?"></textarea>
-            </div>
-
-            <button type="submit" class="btn">
-                Send Booking Request →
-            </button>
-
-        </form>
-
-    </div>
-</section>
-
-
-<!-- CONTACT -->
-<section id="contact">
-    <div class="container">
-
-        <div class="section-heading">
-            <span class="eyebrow">GET IN TOUCH</span>
-            <h2>Contact Twende Adventure</h2>
-            <p>
-                Have a question or want to plan your next trip?
-                We would love to hear from you.
-            </p>
-        </div>
-
-        <div class="contact-grid">
-
-            <div class="contact-card">
-                <div class="feature-icon">📞</div>
-                <h3>Call Us</h3>
-                <p><a href="tel:0792523556">0792523556</a></p>
-            </div>
-
-            <div class="contact-card">
-                <div class="feature-icon">💬</div>
-                <h3>WhatsApp</h3>
                 <p>
+                    Your journey to unforgettable experiences starts here.
+                    Explore beautiful destinations, connect with nature,
+                    meet new people and create memories that last a lifetime.
+                </p>
+
+                <a href="#trips" class="btn btn-primary">Explore Our Trips</a>
+                <a href="#about" class="btn btn-outline">Discover More</a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- INTRO STRIP -->
+    <div class="intro-strip">
+        <div class="container intro-grid">
+
+            <div class="intro-item">
+                <h3>Adventure Awaits</h3>
+                <p>Discover exciting experiences</p>
+            </div>
+
+            <div class="intro-item">
+                <h3>Explore Kenya</h3>
+                <p>Visit amazing destinations</p>
+            </div>
+
+            <div class="intro-item">
+                <h3>Create Memories</h3>
+                <p>Make every journey count</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ABOUT US -->
+    <section id="about">
+        <div class="container about-grid">
+
+            <div class="about-image">
+                <img
+                    src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1000&q=85"
+                    alt="Beautiful nature and forest adventure">
+                <div class="about-badge">
+                    Let's Explore!
+                </div>
+            </div>
+
+            <div class="about-text">
+                <span class="eyebrow">WHO WE ARE</span>
+
+                <h2>Making Every Journey an Unforgettable Experience</h2>
+
+                <p>
+                    Twende Adventure is about bringing people together
+                    through travel, exploration and exciting outdoor
+                    experiences.
+                </p>
+
+                <p>
+                    We help adventure lovers discover beautiful places,
+                    enjoy fun activities and experience the beauty of
+                    Kenya through memorable trips.
+                </p>
+
+                <ul class="about-points">
+                    <li>Exciting group adventures</li>
+                    <li>Beautiful destinations</li>
+                    <li>Memorable travel experiences</li>
+                    <li>Fun activities and new friendships</li>
+                </ul>
+
+                <a href="#booking" class="btn btn-primary">Plan Your Adventure</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- DESTINATIONS -->
+    <section class="destinations" id="destinations">
+        <div class="container">
+
+            <div class="section-heading">
+                <span class="eyebrow">EXPLORE BEAUTIFUL PLACES</span>
+                <h2>Popular Destinations</h2>
+                <p>
+                    Discover some of the beautiful places and experiences
+                    waiting for you across Kenya.
+                </p>
+            </div>
+
+            <div class="destination-grid">
+
+                <div class="destination-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=900&q=85"
+                        alt="Kenyan wildlife">
+                    <div class="destination-overlay">
+                        <h3>Kenya Adventures</h3>
+                        <p>Explore the beauty of the wild</p>
+                    </div>
+                </div>
+
+                <div class="destination-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1433086966358-54859d0ed716?auto=format&fit=crop&w=900&q=85"
+                        alt="Beautiful waterfall">
+                    <div class="destination-overlay">
+                        <h3>Waterfalls</h3>
+                        <p>Discover nature's hidden treasures</p>
+                    </div>
+                </div>
+
+                <div class="destination-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=900&q=85"
+                        alt="Nature and wildlife">
+                    <div class="destination-overlay">
+                        <h3>Nature Escapes</h3>
+                        <p>Reconnect with nature</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- UPCOMING TRIPS -->
+    <section class="trips-section" id="trips">
+        <div class="container">
+
+            <div class="section-heading">
+                <span class="eyebrow">JOIN THE EXPERIENCE</span>
+                <h2>Upcoming Adventures</h2>
+                <p>
+                    Find your next adventure and join us for an experience
+                    worth remembering.
+                </p>
+            </div>
+
+            <!-- Trips are loaded automatically from Firebase -->
+            <div class="trip-container" id="tripContainer">
+                <p class="no-posts">Loading available adventures...</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- LATEST UPDATES -->
+    <section class="posts-section" id="updates">
+        <div class="container">
+
+            <div class="section-heading">
+                <span class="eyebrow">STAY CONNECTED</span>
+                <h2>Latest Updates</h2>
+                <p>
+                    Discover our latest adventures, announcements,
+                    upcoming trips and exciting news.
+                </p>
+            </div>
+
+            <!-- Posts are loaded automatically from Firebase -->
+            <div class="posts-container" id="postsContainer">
+                <p class="no-posts">Loading latest updates...</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+
+            <div class="section-heading">
+                <span class="eyebrow">MOMENTS THAT MATTER</span>
+                <h2>Adventure Gallery</h2>
+                <p>
+                    A glimpse of the beautiful places and experiences
+                    that make every adventure special.
+                </p>
+            </div>
+
+            <div class="gallery-grid">
+
+                <img class="gallery-large"
+                     src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1000&q=85"
+                     alt="Wildlife adventure">
+
+                <img
+                     src="https://images.unsplash.com/photo-1433086966358-54859d0ed716?auto=format&fit=crop&w=700&q=85"
+                     alt="Waterfall">
+
+                <img
+                     src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=700&q=85"
+                     alt="Outdoor adventure">
+
+                <img
+                     src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=700&q=85"
+                     alt="Forest">
+
+                <img
+                     src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=700&q=85"
+                     alt="Beautiful landscape">
+
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="why-us">
+        <div class="container">
+
+            <div class="section-heading">
+                <span class="eyebrow">THE TWENDE EXPERIENCE</span>
+                <h2>Why Travel With Us?</h2>
+                <p>
+                    We believe every adventure should be enjoyable,
+                    memorable and worth sharing.
+                </p>
+            </div>
+
+            <div class="why-grid">
+
+                <div class="why-card">
+                    <div class="why-icon">🌍</div>
+                    <h3>Amazing Destinations</h3>
+                    <p>
+                        Discover beautiful locations and hidden gems
+                        across Kenya.
+                    </p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">🤝</div>
+                    <h3>Meet New People</h3>
+                    <p>
+                        Connect with other adventure lovers and build
+                        lasting friendships.
+                    </p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">🎉</div>
+                    <h3>Unforgettable Fun</h3>
+                    <p>
+                        Enjoy exciting activities and make memories
+                        worth keeping.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- BOOKING SECTION -->
+    <section class="booking-section" id="booking">
+        <div class="container booking-grid">
+
+            <div class="booking-text">
+                <span class="eyebrow" style="color:#f5a623;">
+                    YOUR NEXT JOURNEY STARTS HERE
+                </span>
+
+                <h2>Ready for Your Next Adventure?</h2>
+
+                <p>
+                    Don't just hear about the adventure. Be part of it!
+                    Send us your booking details and our team will help
+                    you plan your next experience.
+                </p>
+
+                <p>
+                    Call or WhatsApp us on
+                    <strong>0792 523 556</strong>.
+                </p>
+
+                <a href="https://wa.me/254792523556"
+                   target="_blank"
+                   class="btn btn-primary">
+                    Chat With Us
+                </a>
+            </div>
+
+            <form class="booking-form" id="bookingForm">
+
+                <h3>Book Your Adventure</h3>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name"
+                               placeholder="Enter your name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone"
+                               placeholder="07XXXXXXXX" required>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="trip">Select Adventure</label>
+                    <select id="trip" name="trip" required>
+                        <option value="">Choose a trip</option>
+                        <option value="Twende Camp Ndunda Falls, Embu">
+                            Twende Camp Ndunda Falls, Embu
+                        </option>
+                        <option value="Other Adventure">
+                            Other Adventure
+                        </option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="people">Number of People</label>
+                        <input type="number" id="people" name="people"
+                               min="1" placeholder="Number of people" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">Preferred Date</label>
+                        <input type="date" id="date" name="date">
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Additional Information</label>
+                    <textarea id="message" name="message"
+                              placeholder="Tell us anything else we should know..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    Submit Booking Request
+                </button>
+
+            </form>
+
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="container">
+
+            <div class="section-heading">
+                <span class="eyebrow">GET IN TOUCH</span>
+                <h2>Contact Twende Adventure</h2>
+                <p>
+                    Have a question or want to plan your next trip?
+                    We would love to hear from you.
+                </p>
+            </div>
+
+            <div class="contact-grid">
+
+                <div class="contact-card">
+                    <div class="contact-icon">📞</div>
+                    <h3>Call Us</h3>
+                    <a href="tel:0792523556">0792 523 556</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">💬</div>
+                    <h3>WhatsApp</h3>
                     <a href="https://wa.me/254792523556" target="_blank">
                         Chat with us
                     </a>
-                </p>
-            </div>
-
-            <div class="contact-card">
-                <div class="feature-icon">🌐</div>
-                <h3>Explore</h3>
-                <p>Follow our adventures and discover upcoming trips.</p>
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-
-<!-- FOOTER -->
-<footer>
-    <div class="container">
-
-        <div class="footer-grid">
-
-            <div>
-                <div class="footer-brand">
-                    <img src="./images/logo.png"
-                         alt="Twende Adventure Logo"
-                         onerror="this.onerror=null; this.src='https://placehold.co/100x100/16834a/ffffff?text=TA';">
-                    <span>Twende Adventure</span>
                 </div>
 
+                <div class="contact-card">
+                    <div class="contact-icon">📍</div>
+                    <h3>Location</h3>
+                    <p>Kenya</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <div class="footer-column">
+
+                    <div class="footer-brand">
+                        <img src="images/logo.png"
+                             alt="Twende Adventure Logo"
+                             onerror="this.style.display='none'">
+
+                        <h3>Twende Adventure</h3>
+                    </div>
+
+                    <p>
+                        Explore beautiful destinations, enjoy exciting
+                        experiences and create unforgettable memories
+                        with Twende Adventure.
+                    </p>
+
+                </div>
+
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#destinations">Destinations</a></li>
+                        <li><a href="#trips">Our Trips</a></li>
+                        <li><a href="#updates">Latest Updates</a></li>
+                        <li><a href="#booking">Book Now</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+
+                    <ul>
+                        <li>
+                            <a href="tel:0792523556">0792 523 556</a>
+                        </li>
+                        <li>
+                            <a href="https://wa.me/254792523556"
+                               target="_blank">WhatsApp Us</a>
+                        </li>
+                        <li>Kenya</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
                 <p>
-                    Discover new places, enjoy exciting adventures
-                    and create unforgettable memories with us.
+                    &copy; <span id="currentYear"></span>
+                    Twende Adventure. All Rights Reserved.
                 </p>
             </div>
 
-            <div>
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#trips">Our Trips</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h3>Contact</h3>
-                <ul>
-                    <li><a href="tel:0792523556">0792523556</a></li>
-                    <li>
-                        <a href="https://wa.me/254792523556" target="_blank">
-                            WhatsApp Us
-                        </a>
-                    </li>
-                    <li><a href="#booking">Book a Trip</a></li>
-                </ul>
-            </div>
-
         </div>
+    </footer>
 
-        <div class="copyright">
-            <p>
-                © <span id="currentYear"></span> Twende Adventure.
-                All Rights Reserved.
-            </p>
-        </div>
+    <!-- FLOATING WHATSAPP -->
+    <a class="whatsapp-float"
+       href="https://wa.me/254792523556"
+       target="_blank"
+       aria-label="Chat with Twende Adventure on WhatsApp">
+        ☎
+    </a>
 
-    </div>
-</footer>
+    <!-- BACK TO TOP -->
+    <a href="#home" class="back-to-top" aria-label="Back to top">
+        ↑
+    </a>
 
+    <!-- NAVIGATION AND BASIC PAGE FUNCTIONS -->
+    <script>
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
 
-<!-- FLOATING WHATSAPP -->
-<a class="whatsapp-float"
-   href="https://wa.me/254792523556"
-   target="_blank">
-    WhatsApp Us
-</a>
+        menuToggle.addEventListener("click", function () {
+            navLinks.classList.toggle("active");
+        });
 
+        document.querySelectorAll(".nav-links a").forEach(function (link) {
+            link.addEventListener("click", function () {
+                navLinks.classList.remove("active");
+            });
+        });
 
-<!-- BACK TO TOP -->
-<button id="backToTop" aria-label="Back to top">↑</button>
+        document.getElementById("currentYear").textContent =
+            new Date().getFullYear();
+    </script>
 
-
-<!-- JAVASCRIPT FILES -->
-<script src="script.js"></script>
-<script type="module" src="public-trips.js"></script>
+    <!-- YOUR EXISTING JAVASCRIPT FILES -->
+    <script src="script.js"></script>
+    <script type="module" src="public-trips.js"></script>
+    <script type="module" src="public-posts.js"></script>
 
 </body>
 </html>

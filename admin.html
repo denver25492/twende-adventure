@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twende Adventure | Admin Dashboard</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+    <header>
+        <h1>TWENDE ADVENTURE</h1>
+        <p>Admin Management Dashboard</p>
+    </header>
+
+    <main class="container">
+
+        <!-- ADMIN LOGIN -->
+        <section id="loginSection" class="panel">
+            <h2>Admin Login</h2>
+
+            <form id="loginForm">
+                <label for="email">Email Address</label>
+                <input type="email" id="email"
+                       placeholder="Enter admin email" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password"
+                       placeholder="Enter password" required>
+
+                <button type="submit">Login</button>
+            </form>
+
+            <p id="loginMessage"></p>
+        </section>
+
+        <!-- ADMIN DASHBOARD -->
+        <section id="dashboardSection" class="panel" hidden>
+
+            <div class="dashboard-header">
+                <h2>Admin Dashboard</h2>
+                <button id="logoutBtn" type="button">Logout</button>
+            </div>
+
+            <!-- MANAGE TRIPS -->
+            <h2>Manage Trips</h2>
+            <h3 id="formTitle">Add New Trip</h3>
+
+            <form id="tripForm">
+                <label for="tripName">Trip Name</label>
+                <input type="text" id="tripName"
+                       placeholder="e.g. Camp Ndunda Falls" required>
+
+                <label for="tripLocation">Location</label>
+                <input type="text" id="tripLocation"
+                       placeholder="Enter trip location" required>
+
+                <label for="tripDate">Trip Date</label>
+                <input type="date" id="tripDate" required>
+
+                <label for="tripPrice">Price (KSh)</label>
+                <input type="number" id="tripPrice"
+                       placeholder="Enter price" min="1" required>
+
+                <label for="tripImage">Image URL</label>
+                <input type="url" id="tripImage"
+                       placeholder="Paste image URL">
+
+                <label for="tripDescription">Trip Description</label>
+                <textarea id="tripDescription"
+                          placeholder="Describe the trip and activities"
+                          required></textarea>
+
+                <button type="submit" id="saveTripBtn">Save Trip</button>
+                <button type="button" id="cancelEditBtn" hidden>
+                    Cancel Edit
+                </button>
+            </form>
+
+            <p id="tripMessage"></p>
+
+            <hr>
+
+            <h3>Available Trips</h3>
+            <div id="tripsList">
+                Loading trips...
+            </div>
+
+            <hr>
+
+            <!-- MANAGE WEBSITE POSTS -->
+            <h2>Manage Website Posts</h2>
+            <p>
+                Publish announcements, travel updates, event information
+                and other news for visitors to see on your website.
+            </p>
+
+            <form id="postForm">
+                <label for="postTitle">Post Title</label>
+                <input type="text" id="postTitle"
+                       placeholder="e.g. Twende Camp Ndunda Falls"
+                       required>
+
+                <label for="postContent">Post Message</label>
+                <textarea id="postContent"
+                          placeholder="Write your announcement or update here..."
+                          required></textarea>
+
+                <label for="postImage">Post Image URL (optional)</label>
+                <input type="url" id="postImage"
+                       placeholder="Paste an image URL">
+
+                <button type="submit" id="publishPostBtn">
+                    Publish Post
+                </button>
+            </form>
+
+            <p id="postMessage"></p>
+
+            <hr>
+
+            <h3>Published Posts</h3>
+            <div id="postsList">
+                Your posts will appear here.
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Twende Adventure. All Rights Reserved.</p>
+    </footer>
+
+    <script type="module" src="admin.js"></script>
+</body>
+</html>
